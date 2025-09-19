@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AHRTP – Association of HR-Tech Professionals</title>
+    <meta name="description" content="Global association for AI & Technology in HR. Membership, certifications, research, and community for HR leaders and technologists.">
+    <meta property="og:title" content="Association of HR-Tech Professionals (AHRTP)">
+    <meta property="og:description" content="Join the global association for AI & Technology in HR. Founding launch offer: $99 today.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue-primary: #003366;
+            --blue-light: #074a8f;
+            --blue-accent: #1e5d99;
+            --green-primary: #00B894;
+            --green-light: #2dd4aa;
+            --green-accent: #00a085;
+            --charcoal: #2c3e50;
+            --charcoal-light: #34495e;
+            --silver: #ecf0f1;
+            --silver-dark: #bdc3c7;
+            --white: #ffffff;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--blue-primary);
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            text-decoration: none;
+        }
+
+        .logo-mark {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--green-primary), var(--green-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 184, 148, 0.3);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            color: var(--charcoal);
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--blue-primary);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--green-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a[aria-current="page"]::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--blue-primary), var(--blue-light));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 51, 102, 0.3);
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 51, 102, 0.4);
+            text-decoration: none;
+            color: white;
+        }
+
+        .cta-outline {
+            border: 2px solid var(--green-primary);
+            color: var(--green-primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-outline:hover {
+            background: var(--green-primary);
+            color: white;
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--charcoal);
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
+            padding: 1rem 0;
+        }
+
+        .mobile-menu.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .mobile-nav-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 0 1.5rem;
+        }
+
+        .mobile-nav-menu a {
+            font-weight: 500;
+            color: var(--charcoal);
+            text-decoration: none;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-light) 50%, var(--blue-accent) 100%);
+            color: white;
+            padding: 8rem 0 6rem;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0, 184, 148, 0.2);
+            color: var(--green-light);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(0, 184, 148, 0.3);
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, white, var(--silver));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-alt {
+            background: var(--gray-50);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--blue-primary);
+            margin-bottom: 1rem;
+        }
+
+        .section p {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+        }
+
+        /* Grid Layouts */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-200);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--green-primary), var(--green-light));
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--blue-primary);
+            margin-bottom: 1rem;
+        }
+
+        .card p, .card li {
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .card ol {
+            padding-left: 1rem;
+            margin: 1rem 0;
+        }
+
+        .card li {
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .card ul li {
+            padding-left: 1.5rem;
+        }
+
+        .card ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--green-primary);
+            font-weight: bold;
+        }
+
+        /* Price Display */
+        .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--blue-primary);
+            display: inline-block;
+        }
+
+        .strike {
+            opacity: 0.6;
+            text-decoration: line-through;
+            margin-left: 0.5rem;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        /* Badge Band */
+        .badge-band {
+            background: linear-gradient(135deg, var(--gray-50), white);
+            padding: 2rem 0;
+            border-top: 1px solid var(--gray-200);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .badge-list {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, var(--green-primary), var(--green-light));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(0, 184, 148, 0.3);
+        }
+
+        /* Special Offer Card */
+        .offer-card {
+            background: linear-gradient(135deg, var(--blue-primary), var(--blue-light));
+            color: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 184, 148, 0.2) 0%, transparent 70%);
+        }
+
+        .offer-card h3,
+        .offer-card strong {
+            color: white;
+        }
+
+        .offer-card .price {
+            color: var(--green-light);
+        }
+
+        /* Notice Box */
+        .notice {
+            background: linear-gradient(135deg, #f0f7ff, #e8f4fd);
+            border: 1px solid #d8ebff;
+            border-left: 4px solid var(--blue-primary);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--gray-300);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--green-primary);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: var(--gray-300);
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer a {
+            color: var(--gray-300);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--green-light);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .hero {
+                padding: 6rem 0 4rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+
+            .grid-3,
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .badge-list {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 5rem 0 3rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .price {
+                font-size: 2rem;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .mt-4 { margin-top: 2rem; }
+        .mb-4 { margin-bottom: 2rem; }
+        .hidden { display: none; }
+        .small { font-size: 0.875rem; opacity: 0.8; }
+        .lead { font-size: 1.25rem; }
+
+        /* Company Logos Section */
+        .company-logos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            align-items: center;
+            padding: 2rem 0;
+        }
+
+        .logo-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-item:hover {
+            opacity: 1;
+        }
+
+        .company-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gray-600);
+            text-align: center;
+            padding: 1rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 10px;
+            background: white;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .company-logo:hover {
+            border-color: var(--green-primary);
+            color: var(--blue-primary);
+            transform: translateY(-2px);
+        }
+
+        /* Assessment Tool Styles */
+        .assessment-container .card {
+            position: relative;
+            overflow: visible;
+        }
+
+        .question-card {
+            margin-bottom: 2rem;
+        }
+
+        .question-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--blue-primary);
+            margin-bottom: 1rem;
+        }
+
+        .answer-options {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .answer-option {
+            background: white;
+            border: 2px solid var(--gray-300);
+            border-radius: 10px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .answer-option:hover {
+            border-color: var(--green-primary);
+            background: var(--gray-50);
+        }
+
+        .answer-option.selected {
+            border-color: var(--green-primary);
+            background: linear-gradient(135deg, rgba(0, 184, 148, 0.1), rgba(0, 184, 148, 0.05));
+        }
+
+        .answer-option input[type="radio"] {
+            margin-right: 0.75rem;
+        }
+
+        /* Blog Card Styles */
+        .blog-card {
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .blog-category {
+            background: linear-gradient(135deg, var(--green-primary), var(--green-light));
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .blog-date {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+        }
+
+        /* Countdown Timer */
+        .countdown-timer {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .countdown-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem;
+            border-radius: 8px;
+            min-width: 60px;
+        }
+
+        .countdown-item span {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .countdown-item small {
+            display: block;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+        }
+
+        /* Sticky CTA */
+        .sticky-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--green-primary), var(--green-light));
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(0, 184, 148, 0.4);
+            z-index: 999;
+            text-decoration: none;
+            font-weight: 600;
+            transform: translateY(100px);
+            transition: transform 0.3s ease;
+        }
+
+        .sticky-cta.visible {
+            transform: translateY(0);
+        }
+
+        .sticky-cta:hover {
+            transform: translateY(-2px);
+            text-decoration: none;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .company-logos {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 1rem;
+            }
+
+            .countdown-timer {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .countdown-item {
+                min-width: 50px;
+                padding: 0.25rem;
+            }
+
+            .countdown-item span {
+                font-size: 1.2rem;
+            }
+
+            .sticky-cta {
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
+                text-align: center;
+                border-radius: 15px;
+            }
+
+            .offer-card > div:first-child {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }(--green-primary), var(--green-light));
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(0, 184, 148, 0.4);
+            z-index: 999;
+            text-decoration: none;
+            font-weight: 600;
+            transform: translateY(100px);
+            transition: transform 0.3s ease;
+        }
+
+        .sticky-cta.visible {
+            transform: translateY(0);
+        }
+
+        .sticky-cta:hover {
+            transform: translateY(-2px);
+            text-decoration: none;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .company-logos {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 1rem;
+            }
+
+            .countdown-timer {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .countdown-item {
+                min-width: 50px;
+                padding: 0.25rem;
+            }
+
+            .countdown-item span {
+                font-size: 1.2rem;
+            }
+
+            .sticky-cta {
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
+                text-align: center;
+                border-radius: 15px;
+            }
+
+            .offer-card > div:first-child {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Legal sections initially hidden */
+        #privacy, #terms {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#home" class="logo">
+                    <div class="logo-mark">A</div>
+                    <span>AHRTP</span>
+                </a>
+                
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#membership">Membership</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#membership" class="cta-button">Join</a></li>
+                </ul>
+
+                <div class="mobile-menu-toggle" id="mobileToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="mobile-menu" id="mobileMenu">
+                    <ul class="mobile-nav-menu">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#membership">Membership</a></li>
+                        <li><a href="#certifications">Certifications</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#membership" class="cta-button">Join</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <div class="hero-badge">The Global Association for AI & Technology in HR</div>
+                <h1>Leading the Future of HR Through AI and Technology</h1>
+                <p class="lead">The <strong>Association of HR-Tech Professionals (AHRTP)</strong> unites HR leaders, technologists, and innovators. We set standards, deliver certifications, publish research, and connect a worldwide community driving the responsible adoption of AI and technology in HR.</p>
+                <div class="hero-actions">
+                    <a href="#membership" class="cta-button">Explore Membership</a>
+                    <a href="#certifications" class="cta-outline">Join Certification Waitlist</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why AHRTP Exists Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Why AHRTP Exists</h2>
+            </div>
+            <div class="grid-3">
+                <div class="card fade-in">
+                    <h3>AI is rewriting HR</h3>
+                    <p>From hiring to performance, AI and platforms are transforming every HR function.</p>
+                </div>
+                <div class="card fade-in">
+                    <h3>Standards are missing</h3>
+                    <p>Organizations need trusted frameworks, ethics, and certifications to adopt responsibly.</p>
+                </div>
+                <div class="card fade-in">
+                    <h3>Tech-first HR body</h3>
+                    <p>We focus exclusively on <strong>AI, data, and HR technology</strong> — not just policy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Badge Band -->
+    <section class="badge-band">
+        <div class="container">
+            <div class="badge-list fade-in">
+                <div class="badge">Focused on AI in HR</div>
+                <div class="badge">CPD Accredited</div>
+                <div class="badge">Global Professional Network</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do Section with Urgency -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>What We Do</h2>
+            </div>
+            <div class="grid-3">
+                <div class="card fade-in">
+                    <h3>Membership & Recognition</h3>
+                    <p>Global community, professional badges, member directory, and exclusive resources.</p>
+                </div>
+                <div class="card fade-in">
+                    <h3>Certifications</h3>
+                    <p>First-to-market credentials in HR-Tech, AI in HR, and Future of Work Strategy.</p>
+                </div>
+                <div class="card fade-in">
+                    <h3>Research & Ratings</h3>
+                    <p>Independent benchmarks, product evaluations, and implementation guides.</p>
+                </div>
+                <div class="card fade-in">
+                    <h3>Events & Networking</h3>
+                    <p>Webinars, virtual roundtables, and the annual AI in HR Summit.</p>
+                </div>
+            </div>
+            
+            <div class="offer-card fade-in">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <strong>🚀 2025 Launch Offer - Limited Time!</strong>
+                    <div class="countdown-timer" id="countdownTimer">
+                        <div class="countdown-item">
+                            <span id="days">--</span>
+                            <small>Days</small>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="hours">--</span>
+                            <small>Hours</small>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="minutes">--</span>
+                            <small>Min</small>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="seconds">--</span>
+                            <small>Sec</small>
+                        </div>
+                    </div>
+                </div>
+                Join as a <em>Founding Member</em> and get a limited badge + certificate, an exclusive AI-HR mini-course, a resource toolkit, and early-bird certification discounts.
+                <div style="margin-top:1rem">
+                    <span class="price">$99</span><span class="strike">$150</span> 
+                    <span class="small" style="color: rgba(255,255,255,0.8)"> — lock in your first year at this price</span>
+                </div>
+                <div style="margin-top:1.5rem">
+                    <a class="cta-outline" href="#membership" style="color: white; border-color: white;">Claim Founding Offer</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Section -->
+    <section id="membership" class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Membership at AHRTP</h2>
+                <p>Your gateway to credibility, learning, and influence at the intersection of HR and technology.</p>
+            </div>
+            
+            <div class="grid-3">
+                <div class="card fade-in">
+                    <h3>Student / Early Career</h3>
+                    <p><span class="price">$75</span><span class="small">/year</span></p>
+                    <ul>
+                        <li>Digital badge & certificate</li>
+                        <li>Access to webinars & resources</li>
+                        <li>Member pricing for events</li>
+                    </ul>
+                    <div style="margin-top: 1.5rem;">
+                        <a class="cta-button" href="#" id="joinStudent">Join as Student</a>
+                    </div>
+                </div>
+
+                <div class="card fade-in">
+                    <h3>Professional Member</h3>
+                    <p><span class="price">$150</span><span class="small">/year</span></p>
+                    <ul>
+                        <li>All Student benefits</li>
+                        <li>Directory listing & community access</li>
+                        <li>Discounts on certifications</li>
+                    </ul>
+                    <div style="margin-top: 1.5rem;">
+                        <a class="cta-button" href="#" id="joinPro">Join as Professional</a>
+                    </div>
+                </div>
+
+                <div class="card fade-in" style="border: 2px solid var(--green-primary); position: relative;">
+                    <div style="position: absolute; top: -1rem; left: 50%; transform: translateX(-50%); background: var(--green-primary); color: white; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 600;">
+                        MOST POPULAR
+                    </div>
+                    <h3>Founding Member — 2025</h3>
+                    <p><span class="price">$99</span><span class="strike">$150</span> <span class="small">first year</span></p>
+                    <ul>
+                        <li>Limited Founding badge + certificate</li>
+                        <li>Mini-course: <em>Foundations of AI & Tech in HR</em></li>
+                        <li>Resource starter toolkit</li>
+                        <li>Priority access & pricing for certifications</li>
+                    </ul>
+                    <p class="small">Offer valid for 2025 signups only.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <a class="cta-button" href="#" id="joinFounding">Claim $99 Offer</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="notice fade-in">
+                <strong>How it works:</strong>
+                <ol>
+                    <li>Join & pay securely online.</li>
+                    <li>Receive your badge + certificate by email.</li>
+                    <li>Get access to the mini-course & resources within 48 hours.</li>
+                </ol>
+                <p class="small">Payments via Stripe/PayPal. Need an invoice? Email <a href="mailto:membership@hrtechprofessionals.org">membership@hrtechprofessionals.org</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section section-alt">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Certifications (Pilot Cohorts 2025)</h2>
+                <p>Gain the credentials that prove your expertise in HR-Tech and AI for the workplace. Our first certification cohorts are launching in 2025 — members get priority waitlist access and discounted pricing.</p>
+            </div>
+            
+            <div class="grid-3">
+                <div class="card fade-in">
+                    <h3>CHTP — Certified HR-Tech Professional</h3>
+                    <p>Master HR systems, data analytics, and digital adoption.</p>
+                </div>
+                <div class="card fade-in">
+                    <h3>CHAIS — Certified HR AI Specialist</h3>
+                    <p>Lead responsible use of AI in HR — governance, ethics, and impact.</p>
+                </div>
+                <div class="card fade-in">
+                    <h3>CFWS — Certified Future of Work Strategist</h3>
+                    <p>Design workforce strategies for hybrid, digital-first organizations.</p>
+                </div>
+            </div>
+            
+            <div class="card mt-4 fade-in">
+                <h3>Join the Certification Waitlist</h3>
+                <p>Members get first access to pilot cohorts, exam outlines, and early-bird pricing.</p>
+                <div class="text-center mt-4">
+                    <a class="cta-button" href="#" id="waitlistBtn">Join Waitlist</a>
+                    <p class="small">Replace with your form link</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Logos Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Trusted by Professionals At</h2>
+                <p>Our members work at leading organizations worldwide</p>
+            </div>
+            
+            <div class="company-logos fade-in">
+                <div class="logo-item">
+                    <div class="company-logo">Microsoft</div>
+                </div>
+                <div class="logo-item">
+                    <div class="company-logo">Google</div>
+                </div>
+                <div class="logo-item">
+                    <div class="company-logo">Amazon</div>
+                </div>
+                <div class="logo-item">
+                    <div class="company-logo">Salesforce</div>
+                </div>
+                <div class="logo-item">
+                    <div class="company-logo">Meta</div>
+                </div>
+                <div class="logo-item">
+                    <div class="company-logo">LinkedIn</div>
+                </div>
+                <div class="logo-item">
+                    <div class="company-logo">Uber</div>
+                </div>
+                <div class="logo-item">
+                    <div class="company-logo">Netflix</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Assessment Tool -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>HR-Tech Readiness Assessment</h2>
+                <p>Discover your organization's AI and technology maturity in 2 minutes</p>
+            </div>
+            
+            <div class="assessment-container fade-in">
+                <div class="card" style="max-width: 800px; margin: 0 auto;">
+                    <div id="assessmentStart" class="text-center">
+                        <div style="width: 120px; height: 120px; background: linear-gradient(135deg, var(--green-primary), var(--green-light)); border-radius: 50%; margin: 0 auto 2rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">
+                            📊
+                        </div>
+                        <h3>Free HR-Tech Maturity Assessment</h3>
+                        <p>Get a personalized report on your organization's readiness for AI and HR technology adoption, plus actionable recommendations.</p>
+                        <ul style="text-align: left; max-width: 400px; margin: 1.5rem auto;">
+                            <li>Current technology maturity score</li>
+                            <li>Gap analysis vs industry leaders</li>
+                            <li>Priority improvement recommendations</li>
+                            <li>Custom implementation roadmap</li>
+                        </ul>
+                        <button class="cta-button" onclick="startAssessment()">Start Free Assessment</button>
+                        <p class="small" style="margin-top: 1rem;">No email required to begin • Get results instantly</p>
+                    </div>
+                    
+                    <div id="assessmentQuestions" style="display: none;">
+                        <div class="progress-bar" style="background: var(--gray-200); height: 8px; border-radius: 4px; margin-bottom: 2rem;">
+                            <div class="progress-fill" style="background: var(--green-primary); height: 100%; border-radius: 4px; width: 0%; transition: width 0.3s ease;"></div>
+                        </div>
+                        
+                        <div id="question-container">
+                            <!-- Questions will be populated by JavaScript -->
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                            <button class="cta-outline" onclick="previousQuestion()" id="prevBtn" style="display: none;">Previous</button>
+                            <button class="cta-button" onclick="nextQuestion()" id="nextBtn">Next Question</button>
+                        </div>
+                    </div>
+                    
+                    <div id="assessmentResults" style="display: none;">
+                        <div class="text-center">
+                            <div id="scoreDisplay" style="font-size: 4rem; font-weight: 800; color: var(--green-primary); margin: 1rem 0;"></div>
+                            <h3 id="maturityLevel"></h3>
+                            <p id="maturityDescription"></p>
+                        </div>
+                        
+                        <div id="recommendations" style="margin-top: 2rem;">
+                            <!-- Recommendations will be populated -->
+                        </div>
+                        
+                        <div class="notice" style="margin-top: 2rem;">
+                            <strong>Want the full detailed report?</strong>
+                            <p>Join AHRTP to access your complete assessment, industry benchmarking, and personalized implementation roadmap.</p>
+                            <div style="margin-top: 1rem;">
+                                <a href="#membership" class="cta-button">Get Full Report</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Preview Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Latest Insights</h2>
+                <p>Expert analysis on AI, technology, and the future of HR</p>
+            </div>
+            
+            <div class="grid-3">
+                <div class="card fade-in blog-card">
+                    <div class="blog-meta">
+                        <span class="blog-category">AI in HR</span>
+                        <span class="blog-date">Jan 15, 2025</span>
+                    </div>
+                    <h3 style="margin: 1rem 0;">The Hidden ROI of AI-Powered Employee Onboarding</h3>
+                    <p>New research shows companies using AI for onboarding see 40% faster time-to-productivity and 25% higher retention rates in the first year.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="#newsletter" class="cta-outline">Read Full Article</a>
+                    </div>
+                </div>
+                
+                <div class="card fade-in blog-card">
+                    <div class="blog-meta">
+                        <span class="blog-category">Future of Work</span>
+                        <span class="blog-date">Jan 12, 2025</span>
+                    </div>
+                    <h3 style="margin: 1rem 0;">Building Bias-Free AI Recruitment: 5 Essential Steps</h3>
+                    <p>A practical guide to implementing AI hiring tools while maintaining fairness and compliance with emerging regulations.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="#newsletter" class="cta-outline">Read Full Article</a>
+                    </div>
+                </div>
+                
+                <div class="card fade-in blog-card">
+                    <div class="blog-meta">
+                        <span class="blog-category">HR Technology</span>
+                        <span class="blog-date">Jan 08, 2025</span>
+                    </div>
+                    <h3 style="margin: 1rem 0;">2025 HR-Tech Stack: Essential Tools Every Team Needs</h3>
+                    <p>Our annual review of must-have technologies for modern HR teams, from core HRIS to cutting-edge AI analytics platforms.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="#newsletter" class="cta-outline">Read Full Article</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4 fade-in">
+                <a href="#newsletter" class="cta-outline">View All Articles</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Member Testimonials Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>What Our Members Say</h2>
+                <p>Join 500+ HR professionals already transforming their careers with AHRTP</p>
+            </div>
+            
+            <div class="grid-3">
+                <div class="card fade-in">
+                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--blue-primary), var(--blue-light)); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 1rem;">
+                            SM
+                        </div>
+                        <div>
+                            <h4 style="margin: 0; color: var(--blue-primary);">Sarah Martinez</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: var(--gray-500);">VP of People, TechFlow Inc.</p>
+                        </div>
+                    </div>
+                    <p>"AHRTP's AI in HR mini-course gave me the confidence to pitch and implement our first AI hiring assistant. The ROI has been incredible."</p>
+                    <div style="color: var(--green-primary);">★★★★★</div>
+                </div>
+                
+                <div class="card fade-in">
+                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--green-primary), var(--green-light)); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 1rem;">
+                            DK
+                        </div>
+                        <div>
+                            <h4 style="margin: 0; color: var(--blue-primary);">David Kim</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: var(--gray-500);">Senior HR Analyst, Global Corp</p>
+                        </div>
+                    </div>
+                    <p>"The network access alone is worth the membership. I've connected with HR-Tech leaders from Fortune 500 companies who've become invaluable mentors."</p>
+                    <div style="color: var(--green-primary);">★★★★★</div>
+                </div>
+                
+                <div class="card fade-in">
+                    <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                        <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--blue-accent), var(--green-accent)); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 1rem;">
+                            LR
+                        </div>
+                        <div>
+                            <h4 style="margin: 0; color: var(--blue-primary);">Lisa Rodriguez</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: var(--gray-500);">HR Director, StartupScale</p>
+                        </div>
+                    </div>
+                    <p>"As a founding member, I got early access to certification prep materials. Already seeing career advancement opportunities opening up!"</p>
+                    <div style="color: var(--green-primary);">★★★★★</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Preview Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Knowledge Hub</h2>
+                <p>Stay ahead with our research, insights, and practical resources</p>
+            </div>
+            
+            <div class="grid-2">
+                <div class="card fade-in">
+                    <h3>Latest Research</h3>
+                    <div style="border-bottom: 1px solid var(--gray-200); padding-bottom: 1rem; margin-bottom: 1rem;">
+                        <h4 style="margin: 0 0 0.5rem; color: var(--blue-primary);">2025 State of AI in HR Report</h4>
+                        <p style="margin: 0; font-size: 0.9rem; color: var(--gray-500);">January 2025 • 45 pages</p>
+                        <p style="margin: 0.5rem 0;">Comprehensive analysis of AI adoption trends, ROI metrics, and implementation challenges across 1,200+ organizations.</p>
+                    </div>
+                    <div style="border-bottom: 1px solid var(--gray-200); padding-bottom: 1rem; margin-bottom: 1rem;">
+                        <h4 style="margin: 0 0 0.5rem; color: var(--blue-primary);">HR-Tech Salary Survey</h4>
+                        <p style="margin: 0; font-size: 0.9rem; color: var(--gray-500);">December 2024 • Interactive Dashboard</p>
+                        <p style="margin: 0.5rem 0;">Compensation data for HR-Tech roles across regions, experience levels, and certifications.</p>
+                    </div>
+                    <a href="#newsletter" class="cta-outline">Access Research</a>
+                </div>
+                
+                <div class="card fade-in">
+                    <h3>Practical Tools</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
+                            <strong>AI Readiness Assessment</strong><br>
+                            <span class="small">Evaluate your organization's AI maturity</span>
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
+                            <strong>Vendor Selection Checklist</strong><br>
+                            <span class="small">50-point evaluation framework for HR-Tech</span>
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-200);">
+                            <strong>Implementation Playbook</strong><br>
+                            <span class="small">Step-by-step guide to successful HR-Tech rollouts</span>
+                        </li>
+                        <li style="padding: 0.75rem 0;">
+                            <strong>ROI Calculator</strong><br>
+                            <span class="small">Measure the business impact of HR technology</span>
+                        </li>
+                    </ul>
+                    <a href="#membership" class="cta-outline">Join for Access</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup Section -->
+    <section id="newsletter" class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Stay Informed</h2>
+                <p>Get the latest HR-Tech insights, research, and member updates delivered weekly</p>
+            </div>
+            
+            <div class="card fade-in text-center" style="max-width: 600px; margin: 0 auto;">
+                <h3>The AI in HR Weekly</h3>
+                <p>Join 5,000+ HR professionals getting our insider newsletter with:</p>
+                <ul style="text-align: left; max-width: 400px; margin: 1.5rem auto;">
+                    <li>Latest AI and HR-Tech news analysis</li>
+                    <li>Case studies from innovative companies</li>
+                    <li>Tool reviews and implementation tips</li>
+                    <li>Exclusive member content previews</li>
+                </ul>
+                
+                <form onsubmit="handleNewsletterSubmit(event)" style="margin-top: 2rem;">
+                    <div style="display: flex; gap: 1rem; max-width: 400px; margin: 0 auto;">
+                        <input type="email" placeholder="Enter your email" required style="flex: 1; padding: 0.75rem; border: 2px solid var(--gray-300); border-radius: 50px; font-size: 1rem;">
+                        <button type="submit" class="cta-button" style="white-space: nowrap;">Subscribe Free</button>
+                    </div>
+                    <p class="small" style="margin-top: 1rem; color: var(--gray-500);">No spam. Unsubscribe anytime. We respect your privacy.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section section-alt">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>About AHRTP</h2>
+            </div>
+            
+            <div class="card fade-in">
+                <p style="font-size: 1.125rem; line-height: 1.8;">The <strong>Association of HR-Tech Professionals (AHRTP)</strong> is the world's first global body focused on <strong>AI and technology in HR</strong>.</p>
+                
+                <div class="notice">
+                    <p><strong>Mission:</strong> Equip professionals and organizations to adopt AI and HR technologies responsibly, ethically, and effectively.</p>
+                    <p><strong>Vision:</strong> To be the global authority on AI & HR-Tech standards, research, and certifications — shaping smarter, fairer, and more innovative workplaces.</p>
+                    <p><strong>Values:</strong> Innovation • Ethics • Impact • Collaboration • Excellence</p>
+                </div>
+                
+                <h3>Founding story</h3>
+                <p>Traditional HR associations focus on policy and compliance. AHRTP fills the gap for a <strong>tech-first, AI-driven HR body</strong> that blends human judgment with modern platforms, analytics, and automation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comprehensive FAQ Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="grid-2">
+                <div class="fade-in">
+                    <h3 style="color: var(--blue-primary); margin-bottom: 1.5rem;">Membership</h3>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            What's included in my membership?
+                            <span>+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>All memberships include a digital badge, certificate, access to webinars, and member pricing for events. Professional members also get directory listing and certification discounts. Founding members receive exclusive mini-course access and priority certification enrollment.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            How long is the founding member offer available?
+                            <span>+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>The $99 founding member price is only available for 2025 signups. After December 31, 2025, this tier will no longer be available and all new members will pay standard pricing.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            Can I upgrade my membership later?
+                            <span>+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes! You can upgrade from Student to Professional membership at any time. We'll prorate the difference. However, the Founding Member tier is only available during 2025 signup.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            Is there a corporate membership option?
+                            <span>+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes! We offer team packages starting at 5 members with bulk discounts. Corporate members also get access to exclusive roundtables and custom training options. Contact us for pricing.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <h3 style="color: var(--blue-primary); margin-bottom: 1.5rem;">Certifications</h3>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            When will certifications be available?
+                            <span>+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Our first pilot cohorts launch in Q2 2025 for CHTP, Q3 2025 for CHAIS, and Q4 2025 for CFWS. Members get priority access to beta programs and early-bird pricing.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            Are certifications recognized for CPD credits?
+                            <span>+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes! Our certifications are designed to meet CPD requirements and we're working on formal alignment with SHRM and HRCI credit systems. Each certification provides 20-30 CPD hours.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            What's the exam format?
+                            <span>+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Exams combine multiple choice questions, scenario-based assessments, and practical project submissions. All exams are online with flexible scheduling. We also offer study groups and prep materials.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            What if I don't pass on the first attempt?
+                            <span>+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>No worries! You get one free retake within 90 days, plus access to additional study materials and mentoring support to help you succeed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section section-alt">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Contact</h2>
+                <p>Questions about membership, certifications, partnerships, or media? We'd love to hear from you.</p>
+            </div>
+            
+            <div class="card fade-in">
+                <form onsubmit="handleSubmit(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Send Message</button>
+                </form>
+                
+                <div class="mt-4">
+                    <p class="small">Email: <a href="mailto:info@hrtechprofessionals.org">info@hrtechprofessionals.org</a> • Membership: <a href="mailto:membership@hrtechprofessionals.org">membership@hrtechprofessionals.org</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sticky CTA -->
+    <a href="#membership" class="sticky-cta" id="stickyCTA">
+        🚀 Join Founding Members - $99
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <p>&copy; 2025 Association of HR-Tech Professionals. All rights reserved.</p>
+                </div>
+                <div>
+                    <a href="#" onclick="showLegalSection('privacy')">Privacy</a> • <a href="#" onclick="showLegalSection('terms')">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Legal Sections (Hidden by default) -->
+    <section id="privacy" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>Privacy Policy</h2>
+            </div>
+            <div class="card">
+                <p>We collect member data only to deliver services (badges, certificates, resources). No data is sold. You may request access, correction, or deletion at any time by emailing <a href="mailto:privacy@hrtechprofessionals.org">privacy@hrtechprofessionals.org</a>.</p>
+                
+                <div class="mt-4">
+                    <button class="cta-outline" onclick="hideLegalSections()">Back to Main Site</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="terms" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Terms of Use</h2>
+            </div>
+            <div class="card">
+                <p>Membership renews annually unless canceled. Certification and event fees follow published refund policies. Misuse of AHRTP credentials may lead to revocation. By using this site, you agree to our policies and community standards.</p>
+                
+                <div class="mt-4">
+                    <button class="cta-outline" onclick="hideLegalSections()">Back to Main Site</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    // Hide legal sections if visible
+                    hideLegalSections();
+                    
+                    // Scroll to target
+                    setTimeout(() => {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }, 100);
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.remove('active');
+                }
+            });
+        });
+
+        // Active navigation highlighting
+        const sections = document.querySelectorAll('section[id]:not(#privacy):not(#terms)');
+        const navLinks = document.querySelectorAll('.nav-menu a[href^="#"], .mobile-nav-menu a[href^="#"]');
+        
+        function updateActiveNav() {
+            // Don't update nav if legal sections are visible
+            if (document.getElementById('privacy').style.display === 'block' || 
+                document.getElementById('terms').style.display === 'block') {
+                return;
+            }
+
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                const sectionHeight = section.offsetHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.removeAttribute('aria-current');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.setAttribute('aria-current', 'page');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+        window.addEventListener('load', updateActiveNav);
+
+        // Fade in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        function checkFadeIn() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkFadeIn);
+        window.addEventListener('load', checkFadeIn);
+
+        // Initialize special features
+        window.addEventListener('load', function() {
+            startCountdown();
+            handleStickyCTA();
+        });
+
+        // Contact form submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thanks! Replace this form with your form provider or mailto link.');
+        }
+
+        // Newsletter submission handler
+        function handleNewsletterSubmit(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            // Replace with your newsletter service integration
+            alert(`Thank you for subscribing with ${email}! Please integrate with your newsletter service (Mailchimp, ConvertKit, etc.)`);
+            event.target.reset();
+        }
+        let currentQuestion = 0;
+        let assessmentAnswers = [];
+        
+        const assessmentQuestions = [
+            {
+                question: "How would you rate your organization's current HR technology adoption?",
+                answers: [
+                    { text: "We use basic HRIS and email", score: 1 },
+                    { text: "We have core HR systems (HRIS, ATS, LMS)", score: 2 },
+                    { text: "We use advanced analytics and some automation", score: 3 },
+                    { text: "We're at the forefront with AI and predictive tools", score: 4 }
+                ]
+            },
+            {
+                question: "What's your organization's approach to AI in HR?",
+                answers: [
+                    { text: "We haven't explored AI in HR yet", score: 1 },
+                    { text: "We're researching and planning AI initiatives", score: 2 },
+                    { text: "We've implemented basic AI tools (chatbots, screening)", score: 3 },
+                    { text: "We use advanced AI for multiple HR functions", score: 4 }
+                ]
+            },
+            {
+                question: "How do you measure HR technology ROI?",
+                answers: [
+                    { text: "We don't currently measure ROI systematically", score: 1 },
+                    { text: "We track basic usage and cost metrics", score: 2 },
+                    { text: "We measure efficiency gains and employee satisfaction", score: 3 },
+                    { text: "We have comprehensive ROI frameworks with business impact", score: 4 }
+                ]
+            },
+            {
+                question: "What's your data and analytics maturity level?",
+                answers: [
+                    { text: "We generate basic reports from our systems", score: 1 },
+                    { text: "We have HR dashboards and regular reporting", score: 2 },
+                    { text: "We use predictive analytics for some decisions", score: 3 },
+                    { text: "We have real-time insights driving strategic decisions", score: 4 }
+                ]
+            },
+            {
+                question: "How prepared is your team for HR technology changes?",
+                answers: [
+                    { text: "Limited tech skills, resistance to change", score: 1 },
+                    { text: "Some tech-savvy members, mixed readiness", score: 2 },
+                    { text: "Generally adaptable with good training support", score: 3 },
+                    { text: "Highly skilled, change-ready, innovation-focused", score: 4 }
+                ]
+            }
+        ];
+
+        function startAssessment() {
+            document.getElementById('assessmentStart').style.display = 'none';
+            document.getElementById('assessmentQuestions').style.display = 'block';
+            showQuestion(0);
+        }
+
+        function showQuestion(index) {
+            const container = document.getElementById('question-container');
+            const question = assessmentQuestions[index];
+            
+            container.innerHTML = `
+                <div class="question-card">
+                    <div class="question-title">Question ${index + 1} of ${assessmentQuestions.length}</div>
+                    <h3 style="margin-bottom: 1.5rem;">${question.question}</h3>
+                    <div class="answer-options">
+                        ${question.answers.map((answer, i) => `
+                            <div class="answer-option" onclick="selectAnswer(${index}, ${i})">
+                                <input type="radio" name="question${index}" value="${answer.score}" id="q${index}a${i}">
+                                <label for="q${index}a${i}">${answer.text}</label>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            
+            // Update progress bar
+            const progress = ((index + 1) / assessmentQuestions.length) * 100;
+            document.querySelector('.progress-fill').style.width = progress + '%';
+            
+            // Update buttons
+            document.getElementById('prevBtn').style.display = index > 0 ? 'block' : 'none';
+            document.getElementById('nextBtn').textContent = index === assessmentQuestions.length - 1 ? 'Get Results' : 'Next Question';
+        }
+
+        function selectAnswer(questionIndex, answerIndex) {
+            // Remove previous selections
+            document.querySelectorAll('.answer-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Select current option
+            event.target.closest('.answer-option').classList.add('selected');
+            event.target.closest('.answer-option').querySelector('input').checked = true;
+            
+            // Store answer
+            assessmentAnswers[questionIndex] = assessmentQuestions[questionIndex].answers[answerIndex].score;
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < assessmentQuestions.length - 1) {
+                if (assessmentAnswers[currentQuestion]) {
+                    currentQuestion++;
+                    showQuestion(currentQuestion);
+                } else {
+                    alert('Please select an answer before continuing.');
+                }
+            } else {
+                if (assessmentAnswers[currentQuestion]) {
+                    showResults();
+                } else {
+                    alert('Please select an answer before getting your results.');
+                }
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion(currentQuestion);
+            }
+        }
+
+        function showResults() {
+            const totalScore = assessmentAnswers.reduce((sum, score) => sum + score, 0);
+            const maxScore = assessmentQuestions.length * 4;
+            const percentage = Math.round((totalScore / maxScore) * 100);
+            
+            let maturityLevel, description, recommendations;
+            
+            if (percentage <= 40) {
+                maturityLevel = "Getting Started";
+                description = "Your organization is in the early stages of HR technology adoption. There are significant opportunities to improve efficiency and employee experience through strategic technology investments.";
+                recommendations = [
+                    "Focus on implementing core HR systems (HRIS, ATS)",
+                    "Establish basic data collection and reporting processes",
+                    "Build HR team technology skills through training",
+                    "Create a technology roadmap with quick wins"
+                ];
+            } else if (percentage <= 65) {
+                maturityLevel = "Building Foundation";
+                description = "You have solid basic systems in place and are ready to expand into more advanced capabilities. Focus on integration and data-driven decision making.";
+                recommendations = [
+                    "Integrate existing systems for better data flow",
+                    "Implement advanced analytics and reporting",
+                    "Explore automation for routine processes",
+                    "Begin pilot AI projects in low-risk areas"
+                ];
+            } else if (percentage <= 85) {
+                maturityLevel = "Advanced Practitioner";
+                description = "Your organization is well-positioned with strong HR technology foundations. You're ready to explore cutting-edge AI and predictive capabilities.";
+                recommendations = [
+                    "Implement AI-powered recruitment and onboarding",
+                    "Develop predictive analytics for retention and performance",
+                    "Create center of excellence for HR technology",
+                    "Share best practices with industry peers"
+                ];
+            } else {
+                maturityLevel = "Innovation Leader";
+                description = "Congratulations! You're at the forefront of HR technology adoption. Focus on continuous innovation and helping others in your industry advance.";
+                recommendations = [
+                    "Lead industry discussions on ethical AI in HR",
+                    "Experiment with emerging technologies",
+                    "Mentor other organizations in their tech journey",
+                    "Contribute to HR-Tech research and standards"
+                ];
+            }
+            
+            document.getElementById('assessmentQuestions').style.display = 'none';
+            document.getElementById('assessmentResults').style.display = 'block';
+            
+            document.getElementById('scoreDisplay').textContent = percentage + '%';
+            document.getElementById('maturityLevel').textContent = maturityLevel;
+            document.getElementById('maturityDescription').textContent = description;
+            
+            document.getElementById('recommendations').innerHTML = `
+                <h3>Your Next Steps:</h3>
+                <ul>
+                    ${recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                </ul>
+            `;
+        }
+
+        // Countdown Timer Functionality
+        function startCountdown() {
+            // Set countdown to end of 2025 (December 31, 2025, 11:59:59 PM)
+            const endDate = new Date('2025-12-31T23:59:59').getTime();
+            
+            const timer = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = endDate - now;
+                
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.getElementById('countdownTimer').innerHTML = '<div style="color: white;">Offer Expired</div>';
+                    return;
+                }
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            }, 1000);
+        }
+
+        // Sticky CTA functionality
+        function handleStickyCTA() {
+            const stickyCTA = document.getElementById('stickyCTA');
+            const heroSection = document.getElementById('home');
+            
+            function checkScroll() {
+                const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+                const scrollPosition = window.scrollY;
+                
+                if (scrollPosition > heroBottom) {
+                    stickyCTA.classList.add('visible');
+                } else {
+                    stickyCTA.classList.remove('visible');
+                }
+            }
+            
+            window.addEventListener('scroll', checkScroll);
+            checkScroll(); // Check initial position
+        }
+
+        // Legal sections management
+        function showLegalSection(sectionId) {
+            // Hide main sections
+            const mainSections = ['home', 'membership', 'certifications', 'about', 'contact'];
+            mainSections.forEach(id => {
+                const section = document.getElementById(id);
+                if (section) section.style.display = 'none';
+            });
+            
+            // Hide other legal section
+            const otherSection = sectionId === 'privacy' ? 'terms' : 'privacy';
+            document.getElementById(otherSection).style.display = 'none';
+            
+            // Show target legal section
+            document.getElementById(sectionId).style.display = 'block';
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function hideLegalSections() {
+            // Hide legal sections
+            document.getElementById('privacy').style.display = 'none';
+            document.getElementById('terms').style.display = 'none';
+            
+            // Show main sections
+            const mainSections = ['home', 'membership', 'certifications', 'about', 'contact'];
+            mainSections.forEach(id => {
+                const section = document.getElementById(id);
+                if (section) section.style.display = 'block';
+            });
+            
+            // Scroll to home
+            document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+            
+            // Update nav after a short delay
+            setTimeout(updateActiveNav, 300);
+        }
+
+        // Join button handlers (replace with your payment links)
+        document.getElementById('joinStudent')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Replace with your Student membership payment link');
+        });
+
+        document.getElementById('joinPro')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Replace with your Professional membership payment link');
+        });
+
+        document.getElementById('joinFounding')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Replace with your Founding Member payment link');
+        });
+
+        document.getElementById('waitlistBtn')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Replace with your certification waitlist form link');
+        });
+    </script>
+</body>
+</html>
